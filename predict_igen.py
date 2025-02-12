@@ -5,7 +5,7 @@ import torchvision
 import numpy as np
 import matplotlib.pyplot as plt
 
-model = keras.models.load_model('models/igen-1299.keras')
+model = keras.models.load_model('models/igen-1199.keras')
 latent_dim = 100
 
 z = tf.random.normal((9, latent_dim))
