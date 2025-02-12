@@ -9,7 +9,7 @@ v_phase = v_line / math.sqrt(3)
 load = 36 #kW
 single_load = load/3
 power_factor = 0.86
-iters = 10
+iters = 1
 time = np.linspace(0, iters*np.pi, 100*iters)
 
 # noise arrays
@@ -65,4 +65,4 @@ dict = {
 }
 
 df = pd.DataFrame(dict)
-df.to_csv('3phase.csv')
+df.to_csv('3phase2.csv')
