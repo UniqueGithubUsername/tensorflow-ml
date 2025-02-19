@@ -19,6 +19,7 @@ noise3 = np.random.normal(0,10,100*iters)
 noise4 = np.random.normal(0,1,100*iters)
 noise5 = np.random.normal(0,1,100*iters)
 noise6 = np.random.normal(0,1,100*iters)
+
 # result arrays
 v1 = []
 v2 = []

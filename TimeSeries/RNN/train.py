@@ -26,24 +26,20 @@ mpl.rcParams['figure.figsize'] = (8, 6)
 mpl.rcParams['axes.grid'] = False
 
 # Load dataset
-csv_path = 'datasets/apple.csv'
+csv_path = '3phase.csv'
 
 df=pd.read_csv(csv_path)
-df = df[['Date Time', 'Apple_Price']]
-
 
 # Slice [start:stop:step], starting from index 5 take every 6th record.
 #df = df[5::6]
 
-date_time = pd.to_datetime(df.pop('Date Time'), format='%Y-%m-%d')
+date_time = pd.to_datetime(df.pop('time'), unit='s')
 timestamp_s = date_time.map(pd.Timestamp.timestamp)
-
-#print(df.head())
 
 print("Input data:")
 print(df.head())
 
-plot_cols = ['Apple_Price']
+plot_cols = ['v1','v2','v3']
 plot_features = df[plot_cols]
 plot_features.index = date_time
 _ = plot_features.plot(subplots=True)
@@ -131,7 +127,7 @@ WindowGenerator.split_window = split_window
 
 # RNN with LSTM
 wide_window = WindowGenerator(
-    input_width=100, label_width=100, shift=1)
+    input_width=10, label_width=10, shift=1)
 
 lstm_model = tf.keras.models.Sequential([
     # Shape [batch, time, features] => [batch, time, lstm_units]
@@ -159,7 +155,7 @@ print('Input shape:', wide_window.example[0].shape)
 print('Output shape:', lstm_model(wide_window.example[0]).shape)
 
 # Plot window
-def plot(self, model=None, plot_col='Apple_Price', max_subplots=3):
+def plot(self, model=None, plot_col='v1', max_subplots=3):
   inputs, labels = self.example
   plt.figure(figsize=(12, 8))
   plot_col_index = self.column_indices[plot_col]
