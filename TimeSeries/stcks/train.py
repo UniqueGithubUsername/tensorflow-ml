@@ -14,7 +14,7 @@ INPUT_WIDTH = 25
 OUT_STEPS = 1
 
 
-df=pd.read_csv('data2.csv')
+df=pd.read_csv('data/data3.csv')
 
 # remove unnamed column
 df.pop('Unnamed: 0')
@@ -288,3 +288,6 @@ IPython.display.clear_output()
 
 multi_window.plot(multi_lstm_model)
 plt.show()
+
+# Save Model
+multi_lstm_model.save('models/rnn_multi_lstm_20_multi.keras')

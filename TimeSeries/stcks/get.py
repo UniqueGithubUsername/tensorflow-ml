@@ -6,7 +6,8 @@ import pandas as pd
 
 # tickers
 tickers = yf.Tickers('AAPL')
-tickers_array = ['ADBE', 'GOOG', 'GOOGL', 'AMZN', 'AMD', 'AAPL', 'ASML', 'AVGO', 'EBAY' , 'INTC', 'META', 'MSFT', 'NFLX', 'NVDA', 'PLTR', 'PYPL', 'QCOM', 'TSLA']
+#tickers_array = ['ADBE', 'GOOG', 'GOOGL', 'AMZN', 'AMD', 'AAPL', 'ASML', 'AVGO', 'EBAY' , 'INTC', 'META', 'MSFT', 'NFLX', 'NVDA', 'PLTR', 'PYPL', 'QCOM', 'TSLA']
+tickers_array = ['GOOG', 'GOOGL', 'AMZN', 'AMD', 'AAPL', 'ASML', 'META', 'MSFT', 'NFLX', 'NVDA', 'TSLA']
 
 # dates
 start_date = datetime.datetime.strptime('2020-01-01', '%Y-%m-%d')
@@ -34,4 +35,4 @@ print("Data:")
 print(df)
 
 # save to .csv
-df.to_csv('data2.csv')
+df.to_csv('data3.csv')
