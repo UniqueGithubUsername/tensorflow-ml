@@ -1,5 +1,4 @@
 import tensorflow as tf
-
 import glob
 import imageio
 import matplotlib.pyplot as plt
@@ -46,6 +45,13 @@ def make_generator_model():
 
     return model
 
+generator = make_generator_model()
+
+noise = tf.random.normal([1, 100])
+generated_image = generator(noise, training=False)
+
+plt.imshow(generated_image[0, :, :, 0], cmap='gray')
+
 def make_discriminator_model():
     model = tf.keras.Sequential()
     model.add(layers.Conv2D(64, (5, 5), strides=(2, 2), padding='same',
@@ -61,15 +67,6 @@ def make_discriminator_model():
     model.add(layers.Dense(1))
 
     return model
-
-# Generator
-generator = make_generator_model()
-
-noise = tf.random.normal([1, 100])
-generated_image = generator(noise, training=False)
-
-plt.imshow(generated_image[0, :, :, 0], cmap='gray')
-plt.show()
 
 # Discriminator
 discriminator = make_discriminator_model()
